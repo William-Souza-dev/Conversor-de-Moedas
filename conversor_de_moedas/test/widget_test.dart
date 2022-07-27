@@ -7,7 +7,6 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:conversor_de_moedas/main.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

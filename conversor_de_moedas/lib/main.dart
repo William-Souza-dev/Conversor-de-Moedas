@@ -9,11 +9,11 @@ const request =
     "https://api.hgbrasil.com/finance?format=json-cors&key=b7e0fba1";
 void main() async {
   runApp(MaterialApp(
-    home: Home(),
+    home: const Home(),
     theme: ThemeData(
         hintColor: Colors.white,
         primaryColor: Colors.amber,
-        inputDecorationTheme: InputDecorationTheme(
+        inputDecorationTheme: const InputDecorationTheme(
           enabledBorder:
               OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
           focusedBorder:
@@ -84,7 +84,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text("\$ Conversor \$"),
+        title: const Text("\$ Conversor \$"),
         backgroundColor: Colors.amber,
         centerTitle: true,
       ),
@@ -94,7 +94,7 @@ class _HomeState extends State<Home> {
             switch (snapshot.connectionState) {
               case ConnectionState.none:
               case ConnectionState.waiting:
-                return Center(
+                return const Center(
                   child: Text("Carregando Dados...",
                       style: TextStyle(color: Colors.amber, fontSize: 25.0),
                       textAlign: TextAlign.center),
@@ -102,7 +102,7 @@ class _HomeState extends State<Home> {
 
               default:
                 if (snapshot.hasError) {
-                  return Center(
+                  return const Center(
                     child: Text("Erro ao Carregar Dados",
                         style: TextStyle(color: Colors.amber, fontSize: 25.0),
                         textAlign: TextAlign.center),
@@ -115,14 +115,14 @@ class _HomeState extends State<Home> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: <Widget>[
-                        Icon(Icons.monetization_on,
+                        const Icon(Icons.monetization_on,
                             size: 150.0, color: Colors.amber),
                         buildTextFild(
                             "Reais", "R\$ ", realController, _realChanged),
-                        Divider(),
+                        const Divider(),
                         buildTextFild(
                             "Dólares", "US\$ ", dolarController, _dolarChanged),
-                        Divider(),
+                        const Divider(),
                         buildTextFild(
                             "Euros", "€ ", euroController, _euroChanged),
                       ],
@@ -141,19 +141,20 @@ Widget buildTextFild(
     controller: c,
     decoration: InputDecoration(
       labelText: label,
-      labelStyle: TextStyle(color: Colors.amber),
+      labelStyle: const TextStyle(color: Colors.amber),
       enabledBorder:
-          OutlineInputBorder(borderSide: BorderSide(color: Colors.amber)),
-      border: OutlineInputBorder(borderSide: BorderSide(color: Colors.amber)),
+          const OutlineInputBorder(borderSide: BorderSide(color: Colors.amber)),
+      border:
+          const OutlineInputBorder(borderSide: BorderSide(color: Colors.amber)),
       prefixText: prefix,
     ),
-    style: TextStyle(
+    style: const TextStyle(
       color: Colors.amber,
       fontSize: 25.0,
     ),
     onChanged: (texto) {
       f(texto);
     },
-    keyboardType: TextInputType.numberWithOptions(decimal: true),
+    keyboardType: const TextInputType.numberWithOptions(decimal: true),
   );
 }
